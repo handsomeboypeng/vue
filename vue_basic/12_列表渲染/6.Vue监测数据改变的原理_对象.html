@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Vue监测数据改变的原理</title>
+		<!-- 引入Vue -->
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<!-- 
+		啥叫响应式：数据变了页面也跟着变
+
+		对象监测原理：
+		当修改data里面的name的时候就会
+		引起name的setter调用，setter
+		里面写了个调用，这个调用会重新解析
+		模板，模板一重新解析生成新的虚拟dom
+		然后新旧dom对比，然后更新页面
+	 -->
+	<body>
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2>学校名称：{{name}}</h2>
+			<h2>学校地址：{{address}}</h2>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+		const vm = new Vue({
+			el:'#root',
+			data:{
+				name:'尚硅谷',
+				address:'北京',
+				student:{
+					name:'tom',
+					age:{
+						rAge:40,
+						sAge:29,
+					},
+					friends:[
+						{name:'jerry',age:35}
+					]
+				}
+			}
+		})
+	</script>
+</html>
