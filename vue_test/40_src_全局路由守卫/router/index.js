@@ -26,6 +26,7 @@ const router =  new VueRouter({
 					name:'xinwen',
 					path:'news',
 					component:News,
+					//meta:路由元信息（程序员自定义信息）  可用于我们想是否授权添加一个配置信息等
 					meta:{isAuth:true,title:'新闻'}
 				},
 				{
