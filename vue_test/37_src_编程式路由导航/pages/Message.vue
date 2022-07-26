@@ -38,6 +38,7 @@
 		},
 		methods: {
 			pushShow(m){
+				//脱离了router-link编程式导航
 				this.$router.push({
 					name:'xiangqing',
 					query:{
