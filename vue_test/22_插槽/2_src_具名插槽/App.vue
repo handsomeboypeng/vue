@@ -17,6 +17,7 @@
 
 		<Category title="电影">
 			<video slot="center" controls src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+			<!-- template不生成真实的dom元素 -->
 			<template v-slot:footer>
 				<div class="foot">
 					<a href="http://www.atguigu.com">经典</a>

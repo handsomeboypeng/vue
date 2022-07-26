@@ -302,6 +302,9 @@ npm run serve是启动服务
 
    3. 备注：若有多个元素需要过度，则需要使用：```<transition-group>```，且每个元素都要指定```key```值。
 
+## 跨域
+协议 域名端口 必须三者一致，如果不一致就是跨域了
+
 ## vue脚手架配置代理
 
 ### 方法一
@@ -310,6 +313,7 @@ npm run serve是启动服务
 
 ```js
 devServer:{
+   //需要访问的服务器
   proxy:"http://localhost:5000"
 }
 ```
@@ -328,7 +332,9 @@ devServer:{
 module.exports = {
 	devServer: {
       proxy: {
+         //如果有/api1的请求那么就是走的代理
       '/api1': {// 匹配所有以 '/api1'开头的请求路径
+      //需要访问的服务器
         target: 'http://localhost:5000',// 代理目标的基础路径
         changeOrigin: true,
         pathRewrite: {'^/api1': ''}
@@ -549,7 +555,7 @@ module.exports = {
 
 ### 5.getters的使用
 
-1. 概念：当state中的数据需要经过加工后再使用时，可以使用getters加工。
+1. 概念：当state中的数据需要经过加工后再使用时，可以使用getters加工。（逻辑复杂并且需要复用时推荐使用这种）
 
 2. 在```store.js```中追加```getters```配置
 
@@ -991,10 +997,12 @@ module.exports = {
 2. 具体名字：
    1. ```activated```路由组件被激活时触发。
    2. ```deactivated```路由组件失活时触发。
+   
+meta:路由元信息（程序员自定义信息）  可用于我们想是否授权添加一个配置信息等
 
 ### 12.路由守卫
 
-1. 作用：对路由进行权限控制
+1. 作用：对路由进行权限控制（在路由index.js中处理比较好）
 
 2. 分类：全局守卫、独享守卫、组件内守卫
 
@@ -1070,5 +1078,5 @@ module.exports = {
    1. 地址干净，美观 。
    2. 兼容性和hash模式相比略差。
    3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
-	 
+	
 	 

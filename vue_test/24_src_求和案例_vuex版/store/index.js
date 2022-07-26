@@ -15,6 +15,7 @@ const actions = {
 		console.log('actions中的jian被调用了')
 		context.commit('JIAN',value)
 	}, */
+	// 3，4，5收到值，函数里面调用commit，mutation中也会有一个JIA方法
 	jiaOdd(context,value){
 		console.log('actions中的jiaOdd被调用了')
 		if(context.state.sum % 2){
@@ -30,6 +31,7 @@ const actions = {
 }
 //准备mutations——用于操作数据（state）
 const mutations = {
+	// 6,7,8commit后自动走mutate,state.sum += value
 	JIA(state,value){
 		console.log('mutations中的JIA被调用了')
 		state.sum += value
@@ -46,6 +48,7 @@ const state = {
 
 //创建并暴露store
 export default new Vuex.Store({
+	// es6简写形式
 	actions,
 	mutations,
 	state,

@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<button @click="isShow = !isShow">显示/隐藏</button>
+		<!-- appear初始动画，页面加载的时候给一次动画效果 -->
 		<transition-group name="hello" appear>
+			<!-- 多个元素有同样的过度效果加key就可以了 -->
 			<h1 v-show="!isShow" key="1">你好啊！</h1>
 			<h1 v-show="isShow" key="2">尚硅谷！</h1>
 		</transition-group>

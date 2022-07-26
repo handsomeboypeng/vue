@@ -26,7 +26,7 @@
 				this.number++
 			},
 			sendStudentlName(){
-				//触发Student组件实例身上的atguigu事件
+				//触发Student组件实例身上的atguigu事件,emit就像是一个触发事件的按钮一样
 				this.$emit('atguigu',this.name,666,888,900)
 				// this.$emit('demo')
 				// this.$emit('click')

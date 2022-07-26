@@ -21,7 +21,9 @@
 		name:'List',
 		data() {
 			return {
-				info:{
+				 //数据驱动着页面展示，因为首次加载页面和使用过程中有多种状态所以得搞多个状态
+            	info:{
+                //外面套层info为的是整体拿到
 					isFirst:true,
 					isLoading:false,
 					errMsg:'',
@@ -31,6 +33,7 @@
 		},
 		mounted() {
 			this.$bus.$on('updateListData',(dataObj)=>{
+				//把dataobj补全到this.info,可以后面在拿到数据后不用传isfirst
 				this.info = {...this.info,...dataObj}
 			})
 		},

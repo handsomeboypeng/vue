@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<!-- 9.渲染页面 -->
 		<h1>当前求和为：{{$store.state.sum}}</h1>
 		<select v-model.number="n">
 			<option value="1">1</option>
@@ -23,12 +24,14 @@
 		},
 		methods: {
 			increment(){
+				// action中不需要什么业务逻辑直接调用commit
 				this.$store.commit('JIA',this.n)
 			},
 			decrement(){
 				this.$store.commit('JIAN',this.n)
 			},
 			incrementOdd(){
+				// 1,2 组件内调用dispatch，并且action中有一个jiaOdd方法
 				this.$store.dispatch('jiaOdd',this.n)
 			},
 			incrementWait(){

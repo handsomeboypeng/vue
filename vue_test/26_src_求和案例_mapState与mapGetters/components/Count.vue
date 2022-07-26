@@ -26,7 +26,21 @@
 		},
 		computed:{
 			//靠程序员自己亲自去写计算属性
-			/* sum(){
+
+		/* he(){
+				return this.$store.state.sum
+			},
+			xuexiao(){
+				return this.$store.state.school
+			},
+			xueke(){
+				return this.$store.state.subject
+			}, */
+			//借助mapState生成计算属性，从state中读取数据。（对象写法）
+			// ...mapState({he:'sum',xuexiao:'school',xueke:'subject'}),
+
+
+		/* sum(){
 				return this.$store.state.sum
 			},
 			school(){
@@ -35,11 +49,7 @@
 			subject(){
 				return this.$store.state.subject
 			}, */
-
-			//借助mapState生成计算属性，从state中读取数据。（对象写法）
-			// ...mapState({he:'sum',xuexiao:'school',xueke:'subject'}),
-
-			//借助mapState生成计算属性，从state中读取数据。（数组写法）
+			//借助mapState生成计算属性，从state中读取数据。（数组写法）(sum和返回的也是sum才能用这种写法)
 			...mapState(['sum','school','subject']),
 
 			/* ******************************************************************** */
